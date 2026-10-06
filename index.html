@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crest Kinderspace - Preschool Registration Form</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --blue: #1976a8;
+            --dark-blue: #124e73;
+            --light-blue: #dff4ff;
+            --yellow: #ffe28a;
+            --pink: #ffd8e5;
+            --purple: #eadcff;
+            --green: #dff4d4;
+            --orange: #ffe2c2;
+            --text: #303b42;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f8fc;
+            color: var(--text);
+            font-family: "Nunito", sans-serif;
+        }
+
+        /* Main Paper */
+        .registration-wrapper {
+            width: 100%;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        .registration-form {
+            position: relative;
+            background: #fff;
+            border-radius: 22px;
+            padding: 28px 38px 35px;
+            box-shadow: 0 8px 35px rgba(31, 85, 115, 0.15);
+            overflow: hidden;
+            border: 1px solid #d9edf7;
+        }
+
+        /* Decorative background */
+        .decoration {
+            position: absolute;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star-1 {
+            top: 30px;
+            left: 12px;
+            color: #f5c542;
+            font-size: 20px;
+        }
+
+        .star-2 {
+            top: 120px;
+            right: 15px;
+            color: #ed8ca8;
+            font-size: 18px;
+        }
+
+        .star-3 {
+            bottom: 80px;
+            left: 12px;
+            color: #7bc6e8;
+            font-size: 20px;
+        }
+
+        .star-4 {
+            bottom: 20px;
+            right: 12px;
+            color: #e9a1ca;
+            font-size: 18px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .logo-area {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .school-title {
+            display: inline-block;
+            padding: 7px 35px;
+            background: #dff3ff;
+            border-radius: 15px;
+            color: var(--dark-blue);
+            font-family: "Baloo 2", cursive;
+            font-size: 32px;
+            line-height: 0.95;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 0 #b7dfef;
+        }
+
+        .school-title span {
+            display: block;
+        }
+
+        .form-title {
+            margin-top: 12px;
+            color: #d56a7e;
+            font-family: "Baloo 2", cursive;
+            font-weight: 800;
+            font-size: 21px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 11px;
+            margin-top: -5px;
+            margin-bottom: 18px;
+        }
+
+        /* Section headings */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .section-title .badge-title {
+            display: inline-block;
+            padding: 3px 18px;
+            border-radius: 20px;
+            font-family: "Baloo 2", cursive;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+
+        .student-title {
+            background: var(--yellow);
+            color: #755600;
+        }
+
+        .parent-title {
+            background: var(--pink);
+            color: #9b5369;
+        }
+
+        .emergency-title {
+            background: var(--light-blue);
+            color: #28749c;
+        }
+
+        .program-title {
+            background: var(--purple);
+            color: #725b99;
+        }
+
+        .medical-title {
+            background: var(--green);
+            color: #527847;
+        }
+
+        .declaration-title {
+            background: var(--orange);
+            color: #966738;
+        }
+
+        /* Form labels */
+        .form-label {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            color: #39464e;
+        }
+
+        .form-control,
+        .form-select {
+            border: none;
+            border-bottom: 1.5px solid #7e8d96;
+            border-radius: 0;
+            padding: 3px 2px;
+            height: 30px;
+            background: transparent;
+            font-size: 13px;
+            box-shadow: none !important;
+        }
+
+        textarea.form-control {
+            height: 55px;
+            resize: vertical;
+            border: 1px solid #aab7be;
+            border-radius: 7px;
+            padding: 7px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #3da1ce;
+            background: #fafdff;
+        }
+
+        .required {
+            color: #df657a;
+        }
+
+        .row-gap {
+            row-gap: 8px;
+        }
+
+        /* Program */
+        .program-options {
+            padding: 6px 5px 3px;
+        }
+
+        .program-option {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .program-option input {
+            accent-color: #7a68b4;
+            margin-right: 6px;
+        }
+
+        /* Declaration */
+        .declaration-box {
+            font-size: 10px;
+            line-height: 1.5;
+            color: #606970;
+            margin-top: 5px;
+            padding: 8px 10px;
+            background: #fffaf3;
+            border-radius: 7px;
+            border: 1px dashed #e6cda7;
+        }
+
+        /* Signature */
+        .signature-area {
+            margin-top: 15px;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #5e6a71;
+            min-height: 28px;
+        }
+
+        .signature-label {
+            font-size: 10px;
+            color: #555;
+            margin-top: 3px;
+        }
+
+        /* Buttons */
+        .button-area {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .btn-submit {
+            background: #1976a8;
+            border: none;
+            color: white;
+            padding: 10px 35px;
+            border-radius: 25px;
+            font-family: "Baloo 2", cursive;
+            font-size: 17px;
+            font-weight: 700;
+            box-shadow: 0 4px 0 #0f587d;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #145f86;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            margin-left: 8px;
+            border: 1px solid #bbb;
+            border-radius: 25px;
+            padding: 9px 25px;
+            background: white;
+        }
+
+        /* Validation */
+        .was-validated .form-control:invalid,
+        .was-validated .form-select:invalid {
+            border-color: #dc3545;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 10px;
+            display: none;
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            font-size: 10px;
+            color: #8a959b;
+            margin-top: 20px;
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .registration-wrapper {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .registration-form {
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                padding: 15px 25px;
+            }
+
+            .button-area,
+            .footer-note {
+                display: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 576px) {
+
+            .registration-wrapper {
+                margin: 10px auto;
+                padding: 7px;
+            }
+
+            .registration-form {
+                padding: 20px 18px 25px;
+                border-radius: 15px;
+            }
+
+            .school-title {
+                font-size: 25px;
+                padding: 7px 22px;
+            }
+
+            .form-title {
+                font-size: 18px;
+            }
+
+            .section-title .badge-title {
+                font-size: 13px;
+            }
+
+            .btn-submit,
+            .btn-reset {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="registration-wrapper">
+
+    <form id="registrationForm"
+          class="registration-form needs-validation"
+          novalidate>
+
+        <!-- Decorative elements -->
+        <div class="decoration star-1">✦</div>
+        <div class="decoration star-2">★</div>
+        <div class="decoration star-3">✦</div>
+        <div class="decoration star-4">★</div>
+
+        <div class="content">
+
+            <!-- HEADER -->
+            <div class="logo-area">
+
+                <div class="school-title">
+                    <span>CREST</span>
+                    <span>KINDERSPACE</span>
+                </div>
+
+                <div class="form-title">
+                    Preschool Registration Form
+                </div>
+
+                <div class="subtitle">
+                    Please complete all sections clearly • For children ages 2.5 – 6 years
+                </div>
+
+            </div>
+
+
+            <!-- ================= STUDENT INFORMATION ================= -->
+
+            <div class="section-title">
+                <span class="badge-title student-title">
+                    STUDENT INFO
+                </span>
+            </div>
+
+            <div class="row row-gap">
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Child's Full Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="childName"
+                        name="childName"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter the child's full name.
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">
+                        Date of Birth (DD/MM/YYYY) <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="dob"
+                        name="dob"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter date of birth.
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">
+                        Gender <span class="required">*</span>
+                    </label>
+
+                    <select
+                        class="form-select"
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+
+                    <div class="invalid-feedback">
+                        Please select gender.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Home Address <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="address"
+                        name="address"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter home address.
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ================= PARENT INFORMATION ================= -->
+
+            <div class="section-title">
+                <span class="badge-title parent-title">
+                    PARENT / GUARDIAN INFO
+                </span>
+            </div>
+
+            <div class="row row-gap">
+
+                <div class="col-12">
+                    <label class="form-label">
+                        Parent / Guardian Full Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="parentName"
+                        name="parentName"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter parent / guardian name.
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Phone Number <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        pattern="[0-9+\-\s]{7,15}"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter a valid phone number.
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Relationship to Child <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="relationship"
+                        name="relationship"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter relationship.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EMERGENCY CONTACT ================= -->
+
+            <div class="section-title">
+                <span class="badge-title emergency-title">
+                    EMERGENCY CONTACT
+                </span>
+            </div>
+
+            <div class="row row-gap">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Emergency Contact Name <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="emergencyName"
+                        name="emergencyName"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter emergency contact name.
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">
+                        Emergency Contact Phone Number <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        class="form-control"
+                        id="emergencyPhone"
+                        name="emergencyPhone"
+                        pattern="[0-9+\-\s]{7,15}"
+                        required
+                    >
+
+                    <div class="invalid-feedback">
+                        Please enter a valid phone number.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROGRAM ================= -->
+
+            <div class="section-title">
+                <span class="badge-title program-title">
+                    PROGRAM
+                </span>
+            </div>
+
+            <div class="small text-muted mb-1">
+                Please select ONE program option:
+            </div>
+
+            <div class="program-options">
+
+                <div class="program-option">
+                    <label>
+                        <input
+                            type="radio"
+                            name="program"
+                            value="Daycare (2.5 - 6)"
+                            required
+                        >
+                        Daycare (2.5 - 6)
+                    </label>
+                </div>
+
+                <div class="program-option">
+                    <label>
+                        <input
+                            type="radio"
+                            name="program"
+                            value="Pre-Kindergarten (3 - 4)"
+                        >
+                        Pre-Kindergarten (3 - 4)
+                    </label>
+                </div>
+
+                <div class="program-option">
+                    <label>
+                        <input
+                            type="radio"
+                            name="program"
+                            value="Lower-Kindergarten (4 - 5)"
+                        >
+                        Lower-Kindergarten (4 - 5)
+                    </label>
+                </div>
+
+                <div class="program-option">
+                    <label>
+                        <input
+                            type="radio"
+                            name="program"
+                            value="Upper-Kindergarten (5 - 6)"
+                        >
+                        Upper-Kindergarten (5 - 6)
+                    </label>
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEDICAL INFORMATION ================= -->
+
+            <div class="section-title">
+                <span class="badge-title medical-title">
+                    MEDICAL INFORMATION
+                </span>
+            </div>
+
+            <div class="row row-gap">
+
+                <div class="col-12">
+
+                    <label class="form-label">
+                        Allergies
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="allergies"
+                        name="allergies"
+                        placeholder="None / Please specify"
+                    >
+
+                </div>
+
+                <div class="col-12">
+
+                    <label class="form-label">
+                        Medical Conditions
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="medicalConditions"
+                        name="medicalConditions"
+                        placeholder="None / Please specify"
+                    >
+
+                </div>
+
+                <div class="col-12">
+
+                    <label class="form-label">
+                        Special Needs
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="specialNeeds"
+                        name="specialNeeds"
+                        placeholder="None / Please specify"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DECLARATION ================= -->
+
+            <div class="section-title">
+                <span class="badge-title declaration-title">
+                    DECLARATION
+                </span>
+            </div>
+
+            <div class="declaration-box">
+
+                I declare that the information provided is true and accurate to the best
+                of my knowledge and belief. I understand that providing false or
+                incomplete information may affect the child's registration.
+
+            </div>
+
+
+            <!-- ================= SIGNATURE ================= -->
+
+            <div class="row signature-area">
+
+                <div class="col-md-7">
+
+                    <div class="signature-line"></div>
+
+                    <div class="signature-label">
+                        Parent / Guardian Signature
+                    </div>
+
+                </div>
+
+                <div class="col-md-5">
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        id="signatureDate"
+                        name="signatureDate"
+                    >
+
+                    <div class="signature-label">
+                        Date
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BUTTONS ================= -->
+
+            <div class="button-area">
+
+                <button
+                    type="submit"
+                    class="btn btn-submit"
+                >
+                    Submit Registration
+                </button>
+
+                <button
+                    type="reset"
+                    class="btn btn-reset"
+                    id="resetBtn"
+                >
+                    Reset
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary rounded-pill px-4 ms-1"
+                    onclick="window.print()"
+                >
+                    🖨 Print
+                </button>
+
+            </div>
+
+            <div class="footer-note">
+                Crest Kinderspace • Preschool Registration
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+    // ==========================================
+    // FORM VALIDATION
+    // ==========================================
+
+    const form = document.getElementById("registrationForm");
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Bootstrap validation
+        if (!form.checkValidity()) {
+
+            form.classList.add("was-validated");
+
+            // Scroll to first invalid field
+            const firstInvalid = form.querySelector(":invalid");
+
+            if (firstInvalid) {
+                firstInvalid.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+                firstInvalid.focus();
+            }
+
+            return;
+        }
+
+        form.classList.add("was-validated");
+
+        // Get selected program
+        const selectedProgram =
+            document.querySelector(
+                'input[name="program"]:checked'
+            );
+
+        // Create form data
+        const formData = {
+
+            childName:
+                document.getElementById("childName").value,
+
+            dob:
+                document.getElementById("dob").value,
+
+            gender:
+                document.getElementById("gender").value,
+
+            address:
+                document.getElementById("address").value,
+
+            parentName:
+                document.getElementById("parentName").value,
+
+            phone:
+                document.getElementById("phone").value,
+
+            relationship:
+                document.getElementById("relationship").value,
+
+            emergencyName:
+                document.getElementById("emergencyName").value,
+
+            emergencyPhone:
+                document.getElementById("emergencyPhone").value,
+
+            program:
+                selectedProgram ? selectedProgram.value : "",
+
+            allergies:
+                document.getElementById("allergies").value,
+
+            medicalConditions:
+                document.getElementById("medicalConditions").value,
+
+            specialNeeds:
+                document.getElementById("specialNeeds").value
+
+        };
+
+        console.log("Registration Data:", formData);
+
+        // Success message
+        alert(
+            "Registration submitted successfully!\\n\\n" +
+            "Child: " + formData.childName +
+            "\\nProgram: " + formData.program
+        );
+
+    });
+
+
+    // ==========================================
+    // RESET FORM
+    // ==========================================
+
+    document.getElementById("resetBtn")
+        .addEventListener("click", function () {
+
+            form.classList.remove("was-validated");
+
+        });
+
+
+    // ==========================================
+    // AUTOMATIC DATE
+    // ==========================================
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    document.getElementById("signatureDate").value =
+        `${year}-${month}-${day}`;
+
+
+    // ==========================================
+    // PHONE NUMBER CLEANUP
+    // ==========================================
+
+    const phoneInputs = document.querySelectorAll(
+        'input[type="tel"]'
+    );
+
+    phoneInputs.forEach(function(input) {
+
+        input.addEventListener("input", function() {
+
+            this.value = this.value.replace(
+                /[^0-9+\-\s]/g,
+                ""
+            );
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
